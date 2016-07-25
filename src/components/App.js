@@ -1,10 +1,11 @@
 import React, {PropTypes} from 'react';
+import LayoutPage from './common/layoutpage';
 
 class App extends React.Component{
     render(){
         return(
             <div>
-            Inserir o componente aqui!
+            <LayoutPage />
             {this.props.children}
             </div>
         );
