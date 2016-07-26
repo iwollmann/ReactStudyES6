@@ -4,7 +4,7 @@ class ListHours extends Component {
     render () {
         function renderHours(hour) {
             return(
-                <div className="item">
+                <div key={hour} className="item">
                     {hour}
                 </div>
             )

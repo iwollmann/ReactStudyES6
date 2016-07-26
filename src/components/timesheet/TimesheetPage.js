@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import ListHours from './ListHours';
+import SummaryHours from './SummaryHours';
 
 class AboutPage extends React.Component {
     constructor(props) {
@@ -44,6 +45,7 @@ class AboutPage extends React.Component {
                 </div>
                 <div className="ui divider"></div>
                 <ListHours  hours={this.state.hours}/>
+                <SummaryHours hours={this.state.hours} />
             </div>
         );
     }
