@@ -1,10 +1,19 @@
 import React from 'react';
 import moment from 'moment';
+import ListHours from './ListHours';
 
 class AboutPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { today: moment() };
+        this.state = { today: moment(), hours: [], hour: null };
+        this.handleClick =this.handleClick.bind(this);
+        this.onChangeInputHour = this.onChangeInputHour.bind(this);
+    }
+    handleClick() {
+        this.setState({ hours: [...this.state.hours, this.state.hour] });
+    }
+    onChangeInputHour(event) {
+        this.setState({ hour: event.target.value });
     }
 
     render() {
@@ -24,15 +33,17 @@ class AboutPage extends React.Component {
                             <label>Hora</label>
                             <div className="two fields">
                                 <div className="field">
-                                    <input type="number" placeholder="00:00" />
+                                    <input type="number" onChange={this.onChangeInputHour} placeholder="00:00" />
                                 </div>
                                 <div className="field">
-                                    <div className="ui button">Add</div>
+                                    <div className="ui button" onClick={this.handleClick}>Add</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div className="ui divider"></div>
+                <ListHours  hours={this.state.hours}/>
             </div>
         );
     }
