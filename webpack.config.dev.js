@@ -12,7 +12,7 @@ export default {
   ],
   target: 'web',
   output: {
-    path: path.join(__dirname, '/dist').replace(/^([A-Z]:)/, v => v.toLowerCase()), // Note: Physical files are only output by the production build task `npm run build`.
+    path: path.join(__dirname, '/dist'), // Note: Physical files are only output by the production build task `npm run build`.
     publicPath: '/',
     filename: 'bundle.js'
   },
