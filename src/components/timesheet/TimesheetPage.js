@@ -20,8 +20,6 @@ class AboutPage extends React.Component {
     removeHour(hour){
         let index = this.state.hours.indexOf(hour);
         this.setState({hours: update(this.state.hours,{$splice: [[index, 1]]})});
-        // this.setState({hours: []});
-        debugger;
     }
 
     render() {
