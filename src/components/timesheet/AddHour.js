@@ -42,7 +42,7 @@ class AddHour extends Component {
 }
 
 AddHour.propTypes = {
-    hour: PropTypes.number,
-}
+    hour: PropTypes.number
+};
 
-export default AddHour
+export default AddHour;
