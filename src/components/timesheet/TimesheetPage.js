@@ -36,11 +36,11 @@ class AboutPage extends React.Component {
                 </div>
                 <div className="ui form">
                     <div className="fields">
-                        <div className="field">
+                        <div className="six wide field">
                             <label>Hora</label>
-                            <div className="two fields">
-                                <div className="field">
-                                    <input type="number" onChange={this.onChangeInputHour} onKeyPress={this.handleAddHourKeyPress} placeholder="00:00" />
+                            <div className="fields">
+                                <div className="twelve wide field">
+                                    <input type="number" min="0" max="23" onChange={this.onChangeInputHour} onKeyPress={this.handleAddHourKeyPress} placeholder="00:00" />
                                 </div>
                                 <div className="field">
                                     <div className="ui button" onClick={this.addHour}>Add</div>
