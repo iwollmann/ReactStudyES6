@@ -7,14 +7,20 @@ class AboutPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { today: moment(), hours: [], hour: null };
-        this.handleClick =this.handleClick.bind(this);
+        this.addHour =this.addHour.bind(this);
         this.onChangeInputHour = this.onChangeInputHour.bind(this);
+        this.handleAddHourKeyPress = this.handleAddHourKeyPress.bind(this)
     }
-    handleClick() {
+    addHour() {
         this.setState({ hours: [...this.state.hours, this.state.hour] });
     }
     onChangeInputHour(event) {
         this.setState({ hour: event.target.value });
+    }
+    handleAddHourKeyPress(event){
+        if(event.key == 'Enter'){
+            this.addHour();
+        }
     }
 
     render() {
@@ -34,10 +40,10 @@ class AboutPage extends React.Component {
                             <label>Hora</label>
                             <div className="two fields">
                                 <div className="field">
-                                    <input type="number" onChange={this.onChangeInputHour} placeholder="00:00" />
+                                    <input type="number" onChange={this.onChangeInputHour} onKeyPress={this.handleAddHourKeyPress} placeholder="00:00" />
                                 </div>
                                 <div className="field">
-                                    <div className="ui button" onClick={this.handleClick}>Add</div>
+                                    <div className="ui button" onClick={this.addHour}>Add</div>
                                 </div>
                             </div>
                         </div>
