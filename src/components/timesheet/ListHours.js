@@ -18,7 +18,7 @@ class ListHours extends Component {
 }
 
 ListHours.propTypes = {
-    hours:PropTypes.arrayOf(PropTypes.number).isRequired
+    hours:PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 export default ListHours;

@@ -42,7 +42,7 @@ class SummaryHours extends Component {
 }
 
 SummaryHours.propTypes = {
-    hours: PropTypes.arrayOf(PropTypes.number).isRequired,
+    hours: PropTypes.arrayOf(PropTypes.string).isRequired,
     summary: PropTypes.number
 };
 
