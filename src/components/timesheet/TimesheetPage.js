@@ -7,9 +7,9 @@ class AboutPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { today: moment(), hours: [], hour: null };
-        this.addHour =this.addHour.bind(this);
+        this.addHour = this.addHour.bind(this);
         this.onChangeInputHour = this.onChangeInputHour.bind(this);
-        this.handleAddHourKeyPress = this.handleAddHourKeyPress.bind(this)
+        this.handleAddHourKeyPress = this.handleAddHourKeyPress.bind(this);
     }
     addHour() {
         this.setState({ hours: [...this.state.hours, this.state.hour] });
@@ -17,8 +17,8 @@ class AboutPage extends React.Component {
     onChangeInputHour(event) {
         this.setState({ hour: event.target.value });
     }
-    handleAddHourKeyPress(event){
-        if(event.key == 'Enter'){
+    handleAddHourKeyPress(event) {
+        if (event.key == 'Enter') {
             this.addHour();
         }
     }
@@ -28,10 +28,10 @@ class AboutPage extends React.Component {
             <div className="ui segment">
                 <div className="ui card">
                     <div className="content">
-                        <div className="ui center aligned">{this.state.today.format("dddd") }</div>
+                        <div className="ui center aligned">{this.state.today.format("dddd")}</div>
                     </div>
                     <div className="content">
-                        <h1 className="ui center aligned">{this.state.today.format("D") }</h1>
+                        <h1 className="ui center aligned">{this.state.today.format("D")}</h1>
                     </div>
                 </div>
                 <div className="ui form">
