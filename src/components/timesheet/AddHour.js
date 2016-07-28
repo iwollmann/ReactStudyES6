@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component, PropTypes} from 'react';
 
 class AddHour extends Component {
     constructor(props) {
@@ -10,6 +10,7 @@ class AddHour extends Component {
     }
     addHour() {
         this.props.addHour(this.state.hour);
+        this._addHourInput.value = null;
     }
     onChangeInputHour(event) {
         this.setState({ hour: event.target.value });
@@ -28,7 +29,14 @@ class AddHour extends Component {
                         <label>Hora</label>
                         <div className="fields">
                             <div className="twelve wide field">
-                                <input type="number" min="0" max="23" onChange={this.onChangeInputHour} onKeyPress={this.handleAddHourKeyPress} placeholder="00:00" />
+                                <input type="number" 
+                                    min="0" 
+                                    max="23" 
+                                    onChange={this.onChangeInputHour} 
+                                    onKeyPress={this.handleAddHourKeyPress} 
+                                    placeholder="00:00" 
+                                    ref={(c) => this._addHourInput = c}
+                                    />
                             </div>
                             <div className="field">
                                 <div className="ui button" onClick={this.addHour}>Add</div>
