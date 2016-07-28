@@ -3,17 +3,14 @@ import React, {Component, PropTypes} from 'react';
 class AddHour extends Component {
     constructor(props) {
         super(props);
-        this.state = { hour: null };
         this.addHour = this.addHour.bind(this);
-        this.onChangeInputHour = this.onChangeInputHour.bind(this);
         this.handleAddHourKeyPress = this.handleAddHourKeyPress.bind(this);
     }
     addHour() {
-        this.props.addHour(this.state.hour);
+        if (this._addHourInput.value)
+            this.props.addHour(this._addHourInput.value);
+        
         this._addHourInput.value = null;
-    }
-    onChangeInputHour(event) {
-        this.setState({ hour: event.target.value });
     }
     handleAddHourKeyPress(event) {
         if (event.key == 'Enter') {
@@ -32,7 +29,6 @@ class AddHour extends Component {
                                 <input type="number" 
                                     min="0" 
                                     max="23" 
-                                    onChange={this.onChangeInputHour} 
                                     onKeyPress={this.handleAddHourKeyPress} 
                                     placeholder="00:00" 
                                     ref={(c) => this._addHourInput = c}
