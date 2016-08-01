@@ -8,18 +8,19 @@ import update from 'react-addons-update';
 import {connect} from 'react-redux';
 import * as timesheetActions from '../../actions/timesheetActions';
 
-class TimeSheetPage extends React.Component {
+export class TimeSheetPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { today: moment() };
+        this.state = { today: moment(), errors: [] };
         this.addHour = this.addHour.bind(this);
         this.removeHour = this.removeHour.bind(this);
     }
     addHour(hour) {
+        errors.push({ message: 'Cannot add negative hour.' });
         this.props.dispatch(timesheetActions.addHour(hour));
     }
 
-    removeHour(hour){
+    removeHour(hour) {
         this.props.dispatch(timesheetActions.removeHour(hour));
     }
 
@@ -37,13 +38,13 @@ class TimeSheetPage extends React.Component {
 }
 
 TimeSheetPage.propTypes = {
-    dispatch:PropTypes.func.isRequired,
-    hours:PropTypes.array.isRequired
+    dispatch: PropTypes.func.isRequired,
+    hours: PropTypes.array.isRequired
 };
 
-function mapStateToProps(state,ownProps){
+function mapStateToProps(state, ownProps) {
     return {
-        hours:state.hours
+        hours: state.hours
     };
 }
 
